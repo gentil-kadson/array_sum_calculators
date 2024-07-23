@@ -1,6 +1,4 @@
-import threading
-import time
-
+import threading, time
 
 class ThreadCalculator:
     def __init__(self, numbers: list[int], number_of_threads: int) -> None:

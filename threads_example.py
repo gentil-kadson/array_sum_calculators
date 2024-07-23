@@ -14,12 +14,9 @@ if number_of_threads > array_length:
 numbers = [random.randint(0, 100) for _ in range(array_length)]
 
 calculator = ThreadCalculator(numbers, number_of_threads)
-
-print("os numeros:")
-print(calculator.numbers)
-
 calculator.divide_array_to_threads()
 calculator.calculate_threads_runtime()
-print("============resultados============")
+
+print("============results============")
 print("total: ", calculator.get_total())
-print("tempo (em ms): ", calculator.get_time())
+print(f"execution time: {calculator.get_time()}ms")
