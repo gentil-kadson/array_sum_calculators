@@ -4,13 +4,13 @@ array_length = input("Amount of numbers the array should have: ")
 array_length = int(array_length)
 numbers = [random.randint(0, 100) for _ in range(array_length)]
 
-start = time.perf_counter()
+start = time.time()
 
 total = sum(numbers)
 
-end = time.perf_counter()
-execution_time = (end - start) * 1000
+end = time.time()
+execution_time = end - start
 
 print("============results============")
 print("total:", total)
-print(f"execution time: {execution_time}ms")
+print(f"execution time: {execution_time}s")
