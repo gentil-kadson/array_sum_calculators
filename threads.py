@@ -16,13 +16,13 @@ threads = list()
 
 def sum_elements(from_index: int, to:int) -> None:
     global total
-    result = sum(numbers[from_index:to])
-    total += result
+    for value in range(from_index, to):
+        result = numbers[value]
+        total += result
 
 incrementor = array_length // number_of_threads
 aux = 0
 for _ in range(number_of_threads-1):
-    # numbers_group = numbers[aux:aux+incrementor]
     thread = threading.Thread(target=sum_elements, args=(aux, aux+incrementor))
     aux += incrementor
     threads.append(thread)
@@ -42,6 +42,19 @@ end = time.time()
 
 runtime = end - start
 
-print("============results============")
+print("============results using threads============")
 print("total: ", total)
+print(f"execution time: {runtime}s")
+
+total = 0
+start = time.time()
+
+for number in numbers:
+    total += number
+
+end = time.time()
+runtime = end - start
+
+print("============results with no threads============")
+print("total:", total)
 print(f"execution time: {runtime}s")
